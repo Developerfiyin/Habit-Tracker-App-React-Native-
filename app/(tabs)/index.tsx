@@ -7,11 +7,12 @@ export default function Splash() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/home");
+      router.replace("/(tabs)/login");
     }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
+  
 
   return (
     <View style={styles.container}>

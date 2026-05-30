@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+
 export default function HomeScreen() {
   return (
     <View
@@ -34,7 +35,7 @@ export default function HomeScreen() {
 
       <Pressable
         style={styles.pressable}
-        onPress={() => router.push("/Sign-up")}
+        onPress={() => router.push("/(tabs)/login")}
       >
         <Text style={styles.text1}> Get Started</Text>
       </Pressable>
