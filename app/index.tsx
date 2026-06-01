@@ -16,7 +16,7 @@ export default function Index() {
         href="/login"
         style={{
           width: 100,
-          height: 50,
+          height: 10,
           backgroundColor: "tint",
           borderRadius: 8,
           textAlign: "center",
