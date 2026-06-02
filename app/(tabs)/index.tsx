@@ -21,7 +21,7 @@ const style = StyleSheet.create({
   },
   link: {
     width: 100,
-    height: 10,
+    heighvft: 10,
     backgroundColor: "tint",
     borderRadius: 8,
     textAlign: "center",
