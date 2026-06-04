@@ -1,10 +1,28 @@
-import {Tabs} from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{tabBarActiveTintColor: "red"}}>
-      <Tabs.Screen name="index" options={{ title: "Home" }} />
-      <Tabs.Screen name="login" options={{title: "Login" }} />
+    <Tabs screenOptions={{ tabBarActiveTintColor: "red" }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="home" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="login"
+        options={{
+          title: "Login",
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="user" size={24} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
