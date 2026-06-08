@@ -22,6 +22,13 @@ export default function TabsLayout() {
         name="login"
         options={{
           title: "Login",
+          tabBarIcon: ({ color, focused }) => {
+            return focused ? (
+              <FontAwesome5 name="user" size={24} color={color} />
+            ) : (
+              <AntDesign name="user" size={24} color={color} />
+            );
+          },
         }}
       />
     </Tabs>
