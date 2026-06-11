@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
 
@@ -94,5 +95,33 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+=======
+import { Link } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
+export default function Index() {
+  return (
+    <View style={style.view}>
+      <Text>Hello, React Native! How are you doing ? </Text>
+      <Text> This is the default first screen </Text>
+      <Link href="/login" style={style.link}>
+        {" "}
+        Login page
+      </Link>
+    </View>
+  );
+}
+const style = StyleSheet.create({
+  view: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  link: {
+    width: 100,
+    height: 10,
+    backgroundColor: "tint",
+    borderRadius: 8,
+    textAlign: "center",
+>>>>>>> 38a3b0f3517da4169071fbed7fd30354db2dcd4b
   },
 });
