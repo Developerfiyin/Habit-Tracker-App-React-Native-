@@ -3,11 +3,11 @@
 // export default function Index() {
 //   return (
 //     <View style={style.view}>
-//       <Text>Hello, React Native </Text>
+//       <Text>Hello, React Native! How are you doing ? </Text>
 //       <Text> This is the default first screen </Text>
-//       <Link href="/(tabs)/login" style={style.link}>
+//       <Link href="/login" style={style.link}>
 //         {" "}
-//         Login page
+//         {/* Login page */}
 //       </Link>
 //     </View>
 //   );
@@ -20,8 +20,8 @@
 //   },
 //   link: {
 //     width: 100,
-//     height: 20,
-//     backgroundColor: "red",
+//     height: 10,
+//     backgroundColor: "tint",
 //     borderRadius: 8,
 //     textAlign: "center",
 //   },
