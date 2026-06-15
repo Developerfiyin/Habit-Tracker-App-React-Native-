@@ -1,11 +1,13 @@
-import { KeyboardAvoidingView, Platform, View } from "react-native";
+import { KeyboardAvoidingView, Platform, Text, View } from "react-native";
 
- 
- export default function AuthScreen() {
-    return (
-        <KeyboardAvoidingView behavior={Platform.OS ==="android" ? "padding" : "height"}>
-            
-            <View> </View>
-             </KeyboardAvoidingView>
-    )
- }
+export default function AuthScreen() {
+  return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "android" ? "padding" : "height"}
+    >
+      <View>
+        <Text>Create Account</Text>
+      </View>
+    </KeyboardAvoidingView>
+  );
+}
