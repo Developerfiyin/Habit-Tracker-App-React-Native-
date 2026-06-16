@@ -1,6 +1,8 @@
 import { KeyboardAvoidingView, Platform, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 export default function AuthScreen() {
+    const [email, setEmail] = useState<boolean>(false);
+    const [password, setPassword] = useState("");
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "android" ? "padding" : "height"}
