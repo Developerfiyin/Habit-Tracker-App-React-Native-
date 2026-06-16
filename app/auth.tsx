@@ -7,23 +7,24 @@ export default function AuthScreen() {
     >
       <View>
         <Text>Create Account</Text>
-        
-          <TextInput
-            label="Email"
-            autoCapitalize="none"
-            keyboardType="email-address"
-            placeholder="daniel@example.com"
-            mode="outlined"
-          />
 
-           <TextInput
-            label="Password"
-            autoCapitalize="none"
-            secureTextEntry
-            placeholder="••••••••"
-            mode="outlined"
-          />
-        < Button mode="contained"> Sign Up</Button>
+        <TextInput
+          label="Email"
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="daniel@example.com"
+          mode="outlined"
+        />
+
+        <TextInput
+          label="Password"
+          autoCapitalize="none"
+          secureTextEntry
+          placeholder="••••••••"
+          mode="outlined"
+        />
+        <Button mode="contained"> Sign Up</Button>
+        <Button mode="text">Already have an account? Sign In</Button>
 
       </View>
     </KeyboardAvoidingView>
