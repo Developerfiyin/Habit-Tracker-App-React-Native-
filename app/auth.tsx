@@ -12,7 +12,7 @@ export default function AuthScreen() {
 
   const handleAuth = async () => {
     if (!email || !password) {
-      setError("fill in all fields correctly.");
+      setError("fill in all fields correctly before moving to the next stage.");
       return;
     }
 
