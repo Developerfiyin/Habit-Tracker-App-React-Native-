@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
+import { StyleSheet } from "react-native"; 
 
 export default function AuthScreen() {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
 
   const handleSubmitMode = () => {
     setIsSignUp((prev) => !prev);
   };
 
   return (
-    <KeyboardAvoidingView
+    <KeyboardAvoidingView style={styles.container}
       behavior={Platform.OS === "android" ? "padding" : "height"}
     >
-      <View>
+      <View style={styles.content}>
         <Text>{isSignUp ? "Welcome Back!" : "Create Account"}</Text>
 
         <TextInput
@@ -43,3 +43,18 @@ export default function AuthScreen() {
     </KeyboardAvoidingView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 16,
+    backgroundColor: "#f5f5f5",
+  }, 
+  content : {
+    backgroundColor: "red",
+     padding: 16,
+     borderRadius: 8,
+     flex: 1,
+  }
+});
