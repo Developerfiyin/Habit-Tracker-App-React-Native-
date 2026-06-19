@@ -48,6 +48,8 @@ export default function AuthScreen() {
           onChangeText={(text) => setPassword(text)}
         />
 
+        {error && <Text> {error} </Text>}
+
         <Button
           mode="contained"
           onPress={handleSubmitMode}
@@ -55,10 +57,15 @@ export default function AuthScreen() {
         >
           {isSignUp ? "Sign Up" : "Sign In"}
         </Button>
-        <Button mode="text" onPress={handleSubmitMode} style={styles.switchModeText}>
+
+        <Button
+          mode="text"
+          onPress={handleSubmitMode}
+          style={styles.switchModeText}
+        >
           {isSignUp
-            ? "Already have an account? Sign In"
-            : "Don't have an account? Sign Up"}
+            ? "Already have an account ? Sign In"
+            : "Don't have an account ? Sign Up"}
         </Button>
       </View>
     </KeyboardAvoidingView>
