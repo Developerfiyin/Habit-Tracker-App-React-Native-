@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
-import { Button, Text, TextInput } from "react-native-paper";
+import { Button, Text, TextInput, useTheme } from "react-native-paper";
 
 export default function AuthScreen() {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
@@ -8,10 +8,19 @@ export default function AuthScreen() {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
+  const theme = useTheme();
+
   const handleAuth = async () => {
     if (!email || !password) {
       setError("fill in all fields correctly.");
+      return;
     }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+    setError(null);
   };
 
   const handleSubmitMode = () => {
@@ -48,7 +57,7 @@ export default function AuthScreen() {
           onChangeText={(text) => setPassword(text)}
         />
 
-        {error && <Text> {error} </Text>}
+        {error && <Text style={{ color: theme.colors.error }}> {error} </Text>}
 
         <Button
           mode="contained"
