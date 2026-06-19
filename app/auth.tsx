@@ -1,43 +1,64 @@
 import { useState } from "react";
-import { KeyboardAvoidingView, Platform, View } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
-import { StyleSheet } from "react-native"; 
 
 export default function AuthScreen() {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+
+  const handleAuth = async () => {
+    if (!email || !password) {
+      setError("fill in all fields correctly.");
+    }
+  };
 
   const handleSubmitMode = () => {
     setIsSignUp((prev) => !prev);
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container}
+    <KeyboardAvoidingView
+      style={styles.container}
       behavior={Platform.OS === "android" ? "padding" : "height"}
     >
       <View style={styles.content}>
-        <Text>{isSignUp ? "Welcome Back!" : "Create Account"}</Text>
+        <Text style={styles.text} variant="headlineMedium">
+          {isSignUp ? "Welcome Back!" : "Create Account"}
+        </Text>
 
         <TextInput
+          style={styles.input}
           label="Email"
           autoCapitalize="none"
           keyboardType="email-address"
           placeholder="daniel@example.com"
           mode="outlined"
+          onChangeText={(text) => setEmail(text)}
         />
 
         <TextInput
+          style={styles.input}
           label="Password"
           autoCapitalize="none"
           secureTextEntry
           placeholder="••••••••"
           mode="outlined"
+          onChangeText={(text) => setPassword(text)}
         />
-        <Button mode="contained" onPress={handleSubmitMode}>
+
+        <Button
+          mode="contained"
+          onPress={handleSubmitMode}
+          style={styles.button}
+        >
           {isSignUp ? "Sign Up" : "Sign In"}
         </Button>
-        <Button mode="text" onPress={handleSubmitMode}>
-          {isSignUp ? "Already have an account? Sign In" : "Don't have an account? Sign Up"}
+        <Button mode="text" onPress={handleSubmitMode} style={styles.switchModeText}>
+          {isSignUp
+            ? "Already have an account? Sign In"
+            : "Don't have an account? Sign Up"}
         </Button>
       </View>
     </KeyboardAvoidingView>
@@ -50,11 +71,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 16,
     backgroundColor: "#f5f5f5",
-  }, 
-  content : {
-    backgroundColor: "red",
-     padding: 16,
-     borderRadius: 8,
-     flex: 1,
-  }, 
+  },
+  content: {
+    padding: 16,
+    justifyContent: "center",
+    flex: 1,
+  },
+  text: {
+    marginBottom: 24,
+    textAlign: "center",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  input: {
+    marginBottom: 16,
+  },
+  button: {
+    marginTop: 8,
+  },
+  switchModeText: {
+    marginTop: 16,
+    textAlign: "center",
+    color: "#007bff",
+  },
 });
