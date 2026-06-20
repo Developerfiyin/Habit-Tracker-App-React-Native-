@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginBottom: 24,
-    textAlign: "center",we keg rkg ek
+    textAlign: "center",
     fontSize: 24,
     fontWeight: "bold",
   },
