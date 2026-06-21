@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
-  },
+  }, 
   button: {
     marginTop: 8,
   },
