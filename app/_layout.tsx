@@ -1,32 +1,7 @@
-// import { Stack, useRouter } from "expo-router";
-// import { useEffect } from "react";
-
-// function RouteGuard({ children }: { children: React.ReactNode }) {
-//   const router = useRouter();
-//   const isAuth = false;
-
-//   useEffect(() => {
-//     if (!isAuth) {
-//       router.replace("/auth");
-//     }
-//   });
-//   return <>{children} </>;
-// }
-
-// export default function RootLayout() {
-//   return (
-//     <RouteGuard>
-//       <Stack>
-//         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-//       </Stack>
-//     {/* </RouteGuard> */}
-//   );
-// }
-
 import { Stack, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
 
-const isAuth = false; // Replace with your real auth state later
+const isAuth = false;
 
 export default function RootLayout() {
   const router = useRouter();
@@ -36,19 +11,19 @@ export default function RootLayout() {
     const inAuthScreen = segments[0] === "auth";
 
     if (!isAuth && !inAuthScreen) {
-      router.replace("/auth"); // Send to login
+      router.replace("/auth");
     }
 
     if (isAuth && inAuthScreen) {
-      router.replace("/(tabs)"); // Send to app if already logged in
+      router.replace("/(tabs)");
     }
-  }, [isAuth, segments]); // ← Dependency array is critical
+  }, [segments]);
 
-  // Stack ALWAYS renders — guard logic is separate
   return (
     <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="auth" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 }
