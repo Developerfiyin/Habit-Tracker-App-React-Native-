@@ -8,7 +8,7 @@ export default function HomeScreen() {
       <Text variant="bodyMedium" style={styles.subtitle}>
         This is your main screen.
       </Text>
-    </View>
+    </View> 
   );
 }
 
